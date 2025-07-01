@@ -1,7 +1,129 @@
 <!DOCTYPE html>
-<html>
-    <body>
-        <h1>Hello World</h1>
-        <p>I'm hosted with GitHub Pages.</p>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Portfolio</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- external CSS -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body class="font-sans bg-white text-gray-800">
+
+        <!-- wrapper for both header and hero section -->
+        <div class="bg-[linear-gradient(45deg,white_50%,#fce7f3_50%)]">
+
+            <!-- navigation -->
+            <header class="flex justify-between items-center px-10 py-6">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-pink-500 text-white font-bold text-xl rounded-md w-8 h-8 flex items-center justify-center">
+                        K
+                    </div>
+                    <span class="font-bold text-xl">Portfolio</span>
+                </div>
+                <nav class="hidden md:flex space-x-10 text-sm md:text-2xl font-bold uppercase">
+                    <a href="#about" class="hover:text-pink-500 hover:scale-105">About</a>
+                    <a href="#projects" class="hover:text-pink-500 hover:scale-105">Projects</a>
+                    <a href="#educ" class="hover:text-pink-500 hover:scale-105">Education</a>
+                    <a href="#contact" class="hover:text-pink-500 hover:scale-105">Contact</a>
+                </nav>
+                <a href="#" class="border border-pink-500 px-4 py-2 rounded-md text-xl font-medium bg-pink-500 text-white hover:scale-105">Download CV</a>
+            </header>
+
+            <!-- hero section -->
+            <section id="hero" class="min-h-screen px-5">
+                <div class="w-full mx-auto md:max-w-screen-xl flex flex-col md:flex-row items-center md:items-stretch justify-between md:gap-x-20 min-h-screen animate-fadeUp">
+
+                
+                    <!-- text content -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center md:justify-start text-center md:text-left px-4 py-10">
+                        <div class="animate-fadeUp" style="animation-delay: 0.1s">
+                            <p class="text-xl sm:text-4xl font-bold mb-2">Hello,</p>
+                            <p class="text-3xl sm:text-5xl font-extrabold">
+                                I'm <span class="font-extrabold text-pink-500">Kimberly Kho</span>
+                            </p>
+                            <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
+                                a <span id="role" class="text-dark fade fade-in">QA Tester</span>
+                            </h1>
+                            <p class="text-gray-600 font-medium text-justify my-8 sm:my-10 text-sm sm:text-lg leading-relaxed">
+                                I'm Kim, a graduating BS Information Technology student from the Polytechnic University of the Philippines, Quezon City campus. I aim to contribute 
+                                and deliver high-quality projects, and grow in an innovative environment.
+                            </p>
+                            <div class="flex justify-center md:justify-start">
+                                <a href="#" class="bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition">
+                                View Projects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <!-- image content -->
+                    <div class="w-full md:w-1/2 flex justify-center pb-20 md:pb-0 animate-fadeUp" style="animation-delay: 0.5s">
+                        <div class="flex items-center justify-center h-full md:h-screen">
+                        <div class="w-64 h-64 sm:w-80 sm:h-80 md:w-[500px] md:h-[500px] bg-pink-500 rounded-full flex items-center justify-center overflow-hidden">
+                            <img src="media/kim.png" alt="Kim" class="w-full h-full object-contain" />
+                        </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </section>
+        </div>
+
+
+        <section id="about" class="bg-gray-100">
+            <div class="flex flex-col md:flex-row justify-between">
+        
+            <!-- left column (image) -->
+            <div class="py-10 md:py-20 px-6 md:px-10 md:w-1/2">
+                    <img src="media/kim2-1.png" alt="Kim" class="w-full h-auto" />
+            </div>
+        
+            <!-- right column -->
+            <div class="w-full md:w-1/2 px-6 py-10 md:py-20 md:pr-10">
+                <h1 class="uppercase text-5xl md:text-9xl font-extrabold text-pink-500">
+                ABOUT.
+                </h1>
+        
+                <div class="pt-6 md:pt-20 space-y-6">
+                <p class="text-lg md:text-2xl font-bold text-gray-800">
+                    I'm passionate about what I do and I love learning new things 💡🎨
+                </p>
+        
+                <p class="text-gray-600 font-medium text-justify text-base sm:text-lg leading-relaxed">
+                    With a strong curiosity and drive to improve, I’ve developed skills across multiple fields;
+                    <span class="text-pink-500 font-semibold">Quality Assurance Testing, UI/UX Design, Front-end Development, and Project Management.</span>
+                    I enjoy taking on new challenges where I can apply and expand what I know.
+                </p>
+        
+                <p class="text-gray-600 font-medium text-justify text-base sm:text-lg leading-relaxed">
+                    Outside of the tech field, I express my creativity through various hobbies such as crochet, sewing, gaming, anime, and cosplaying.
+                    I also value leadership, I served as a
+                    <span class="text-pink-500 font-semibold">
+                    class president and vice president for research and development
+                    </span>
+                    in our university’s organization, Commonwealth Information Technology Society (CommITS).
+                </p>
+                </div>
+            </div>
+        
+            </div>
+        </section>
+        
+        
+        <section id="projects" class="bg-white">
+            <div class="text-center py-20">
+                <h1 class="uppercase text-5xl font-extrabold">
+                    projects
+                </h1>
+            </div>
+        </section>
+
+
+
+        <!-- external JS -->
+    <script src="script.js"></script>
     </body>
 </html>
