@@ -5,34 +5,91 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Portfolio</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
         <!-- external CSS -->
         <link rel="stylesheet" href="style.css">
     </head>
 
-    <body class="font-sans bg-white text-gray-800">
+    <body class="font-sans bg-gray-100 text-gray-800">
 
         <!-- wrapper for both header and hero section -->
-        <div class="bg-[linear-gradient(45deg,white_50%,#fce7f3_50%)]">
-
-            <!-- navigation -->
-            <header class="flex justify-between items-center px-10 py-6">
+        <div class="relative bg-gradient-to-br from-pink-100 via-pink-300 to-pink-500 min-h-screen overflow-hidden">
+            <!-- svg glitter -->
+            <svg class="absolute inset-0 w-full h-full z-0 pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="sparkles" patternUnits="userSpaceOnUse" width="60" height="60">
+                        <!-- Star 1 -->
+                        <circle cx="10" cy="10" r="0.5" fill="white">
+                        <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite" begin="0s" />
+                        </circle>
+                        
+                        <!-- Star 2 -->
+                        <circle cx="40" cy="20" r="0.8" fill="white">
+                        <animate attributeName="opacity" values="0;1;0" dur="1.2s" repeatCount="indefinite" begin="1s" />
+                        </circle>
+                        
+                        <!-- Star 3 -->
+                        <circle cx="25" cy="45" r="1" fill="white">
+                        <animate attributeName="opacity" values="0;1;0" dur="1.4s" repeatCount="indefinite" begin="0.5s" />
+                        </circle>
+                        
+                        <!-- Star 4 -->
+                        <circle cx="50" cy="50" r="1.2" fill="white">
+                        <animate attributeName="opacity" values="0;1;0" dur="1.6s" repeatCount="indefinite" begin="1.5s" />
+                        </circle>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#sparkles)" />
+            </svg>
+              
+            
+            <!-- begin::navigation -->
+            <header class="flex justify-between items-center px-5 py-4 md:px-10 md:py-6 relative z-20">
+                <!-- Logo and title -->
                 <div class="flex items-center space-x-2">
-                    <div class="bg-pink-500 text-white font-bold text-m md:text-xl rounded-md w-8 h-8 flex items-center justify-center">
+                    <div class="bg-pink-500 text-white font-bold text-sm md:text-xl rounded-md w-8 h-8 flex items-center justify-center">
                         K
                     </div>
-                    <span class="font-bold text-xl">Portfolio</span>
+                    <span class="font-bold text-lg md:text-xl">Portfolio</span>
                 </div>
-                <nav class="hidden md:flex space-x-10 text-sm md:text-2xl font-bold uppercase">
-                    <a href="#about" class="hover:text-pink-500 hover:scale-105">About</a>
-                    <a href="#projects" class="hover:text-pink-500 hover:scale-105">Projects</a>
-                    <a href="#educ" class="hover:text-pink-500 hover:scale-105">Education</a>
-                    <a href="#contact" class="hover:text-pink-500 hover:scale-105">Contact</a>
-                </nav>
-                <a href="#" class="border border-pink-500 px-4 py-2 rounded-md text-sm md:text-xl font-medium bg-pink-500 text-white hover:scale-105">Download CV</a>
-            </header>
 
-            <!-- hero section -->
+                <!-- Hamburger button -->
+                <button id="mobile-menu-toggle" class="md:hidden text-pink-700 focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+
+                <!-- Desktop nav -->
+                <nav class="hidden md:flex space-x-6 md:space-x-10 text-sm md:text-lg font-bold uppercase">
+                    <a href="#about" class="hover:text-pink-500 hover:scale-105 transition">About</a>
+                    <a href="#projects" class="hover:text-pink-500 hover:scale-105 transition">Projects</a>
+                    <a href="#educ" class="hover:text-pink-500 hover:scale-105 transition">Education</a>
+                    <a href="#contact" class="hover:text-pink-500 hover:scale-105 transition">Contact</a>
+                </nav>
+
+                <!-- Download CV button -->
+                <a href="media/CV_Kimberly.pdf" download class="hidden md:inline-block bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition">
+                    Download CV
+                </a> 
+
+                <!-- Mobile nav dropdown -->
+                <div id="mobile-menu" class="absolute top-full left-0 w-full bg-gradient-to-br from-pink-100 via-pink-300 to-pink-500 flex flex-col items-start px-6 py-4 space-y-4 font-bold text-pink-700 uppercase text-sm md:hidden hidden">
+                    <a href="#about" class="hover:text-pink-500">About</a>
+                    <a href="#projects" class="hover:text-pink-500">Projects</a>
+                    <a href="#educ" class="hover:text-pink-500">Education</a>
+                    <a href="#contact" class="hover:text-pink-500">Contact</a>
+                    <a href="media/CV_Kimberly.pdf" download class="border border-pink-500 px-4 py-2 rounded-md bg-pink-500 text-white">Download CV</a>
+                </div>
+            </header>
+            <!-- end::navigation -->
+
+
+
+            <!-- begin::hero -->
             <section id="hero" class="min-h-screen px-5">
                 <div class="w-full mx-auto md:max-w-screen-xl flex flex-col md:flex-row items-center md:items-stretch justify-between md:gap-x-20 min-h-screen animate-fadeUp">
 
@@ -47,14 +104,29 @@
                             <h1 class="text-3xl sm:text-5xl font-bold leading-tight">
                                 a <span id="role" class="text-dark fade fade-in">QA Tester</span>
                             </h1>
-                            <p class="text-gray-600 font-medium text-justify my-8 sm:my-10 text-sm sm:text-lg leading-relaxed">
+                            <p class="text-gray-700 font-medium text-justify my-8 sm:my-10 text-sm sm:text-lg leading-relaxed">
                                 I'm Kim, a graduating BS Information Technology student from the Polytechnic University of the Philippines, Quezon City campus. I aim to contribute 
                                 and deliver high-quality projects, and grow in an innovative environment.
                             </p>
+
+                            <!-- skills logos -->
+                            <div class="flex justify-center md:justify-start flex-wrap gap-4 mb-10">
+                                <img src="media/logo/selenium.png" alt="HTML" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/html.svg" alt="HTML" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/css.svg" alt="CSS" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/js.svg" alt="JavaScript" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/bootstrap.svg" alt="Bootstrap" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/tailwind.svg" alt="HTML" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/figma.svg" alt="HTML" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/jira.svg" alt="HTML" class="w-10 h-10 sm:w-12 sm:h-12">
+                                <img src="media/logo/github.svg" alt="Git" class="w-10 h-10 sm:w-12 sm:h-12">
+                            </div>
+
+
                             <div class="flex justify-center md:justify-start">
-                                <a href="#" class="bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition">
-                                View Projects
-                                </a>
+                                <a href="media/CV_Kimberly.pdf" download class="bg-pink-500 text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition">
+                                    Download CV
+                                </a>                                
                             </div>
                         </div>
                     </div>
@@ -70,60 +142,330 @@
     
                 </div>
             </section>
+            <!-- end::hero -->
         </div>
 
 
-        <section id="about" class="bg-gray-100">
+        <!-- begin::about -->
+        <section id="about" class="">
             <div class="flex flex-col md:flex-row justify-between">
         
             <!-- left column (image) -->
-            <div class="py-10 md:py-20 px-6 md:px-10 md:w-1/2">
-                    <img src="media/kim2-1.png" alt="Kim" class="w-full h-auto" />
+            <div class="py-10 md:py-20 px-6 md:px-24 md:w-1/2">
+                <img src="media/kim3.jpg" alt="Kim" class="w-[50vh] h-auto" />
             </div>
         
             <!-- right column -->
-            <div class="w-full md:w-1/2 px-6 py-10 md:py-20 md:pr-10">
+            <div class="w-full px-6 py-10 md:py-20 md:pr-28">
                 <h1 class="uppercase text-5xl md:text-9xl font-extrabold text-pink-500">
-                ABOUT.
+                    ABOUT.
                 </h1>
         
-                <div class="pt-6 md:pt-20 space-y-6">
-                <p class="text-lg md:text-2xl font-bold text-gray-800">
-                    I'm passionate about what I do and I love learning new things 💡🎨
-                </p>
-        
-                <p class="text-gray-600 font-medium text-justify text-base sm:text-lg leading-relaxed">
-                    With a strong curiosity and drive to improve, I’ve developed skills across multiple fields;
-                    <span class="text-pink-500 font-semibold">Quality Assurance Testing, UI/UX Design, Front-end Development, and Project Management.</span>
-                    I enjoy taking on new challenges where I can apply and expand what I know.
-                </p>
-        
-                <p class="text-gray-600 font-medium text-justify text-base sm:text-lg leading-relaxed">
-                    Outside of the tech field, I express my creativity through various hobbies such as crochet, sewing, gaming, anime, and cosplaying.
-                    I also value leadership, I served as a
-                    <span class="text-pink-500 font-semibold">
-                    class president and vice president for research and development
-                    </span>
-                    in our university’s organization, Commonwealth Information Technology Society (CommITS).
-                </p>
+                <div class="pt-6 md:pt-20 space-y-5 md:pr-20">
+                    <p class="text-lg md:text-2xl font-bold text-gray-800">
+                        I'm passionate about what I do and I love learning new things 💡🎨
+                    </p>
+            
+                    <p class="text-gray-700 font-medium text-justify text-base sm:text-lg leading-relaxed">
+                        With a strong curiosity and drive to improve, I’ve developed skills across multiple fields;
+                        <span class="text-pink-500 font-semibold">Quality Assurance Testing, UI/UX Design, Front-end Development, and Project Management.</span>
+                        I enjoy taking on new challenges where I can apply and expand what I know.
+                    </p>
+            
+                    <p class="text-gray-600 font-medium text-justify text-base sm:text-lg leading-relaxed">
+                        Outside of the tech field, I express my creativity through 
+                        <span class="text-pink-500 font-semibold">
+                            various hobbies
+                        </span>
+                        such as crochet, sewing, gaming, anime, and cosplaying.
+                        <span class="text-pink-500 font-semibold">
+                            I also value leadership,
+                        </span>
+                        I served as a class president and vice president for research and development
+                        in our university’s organization, Commonwealth Information Technology Society (CommITS).
+                    </p>
                 </div>
             </div>
         
             </div>
         </section>
+        <!-- end::about -->
         
         
-        <section id="projects" class="bg-white">
-            <div class="text-center py-20">
-                <h1 class="uppercase text-5xl font-extrabold">
-                    projects
-                </h1>
+        <!-- begin::projects -->
+        <section id="projects" class="bg-pink-300 py-10 md:py-20 px-10">
+            <div class="max-w-screen-xl mx-auto">
+                <h1 class="uppercase text-5xl md:text-6xl lg:text-7xl font-extrabold text-white text-center">
+                    Projects
+                </h1>                  
+                <p class="text-center font-semibold mt-2 text-m md:text-xl mb-12">click on the image to view</p>
+
+                <!-- Grid 1 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 md:mt-20">
+                    <!-- Card 1 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="PUPQC Alumni System"
+                        data-company="Polytechnic University of the Philippines, Quezon City Campus"
+                        data-date="June 2025 - July 2025"
+                        data-image="media/proj/alumni.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/alumni.png" alt="Project 1" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">PUPQC Alumni System</h2>
+                                <p class="text-gray-700">Lead QA</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 2 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="CVHAI Homeowners Project"
+                        data-company="Cavaliers Village Homeowners Association Inc."
+                        data-date="Feb 2025 - July 2025"
+                        data-image="media/proj/cvhai.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/cvhai.png" alt="Project 2" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">CVHAI Homeowners Project</h2>
+                                <p class="text-gray-700">QA | UI/UX | Front-end Dev</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 3 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="myPUPQC AI"
+                        data-company="Polytechnic University of the Philippines, Quezon City Campus"
+                        data-date="Feb 2025 - July 2025"
+                        data-image="media/proj/mypupqc-ai.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/mypupqc-ai.png" alt="Project 3" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">myPUPQC AI</h2>
+                                <p class="text-gray-700">QA</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                 <!-- Grid 2 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 md:mt-20">
+                    <!-- Card 4 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="MHHAI Collections and Disbursements System"
+                        data-company="Montevista Heights Homeowners Association Inc."
+                        data-date="Apr 2025 - June 2025"
+                        data-image="media/proj/mhhai.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/mhhai.png" alt="Project 4" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">MHHAI Collections and Disbursements System</h2>
+                                <p class="text-gray-700">Front-end Dev</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 5 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="ALPs Calendar"
+                        data-company="Advanced Learning Programs"
+                        data-date="Dec 2024 - Feb 2025"
+                        data-image="media/proj/alps.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/alps.png" alt="Project 5" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">ALPs Calendar</h2>
+                                <p class="text-gray-700">QA | UI/UX | Front-end Dev | Scrum Master</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 6 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="GUnify Information Management System"
+                        data-company="Government Financial Management Innovators Circle Inc."
+                        data-date="2024 - 2025"
+                        data-image="media/proj/gunify.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/gunify.png" alt="Project 6" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">GUnify Information Management System</h2>
+                                <p class="text-gray-700">Front-end Dev</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <!-- Grid 3 -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 md:mt-20">
+                    <!-- Card 7 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="Data-driven AI-powered Local Analytics (DALAY)"
+                        data-company="Government Financial Management Innovators Circle Inc."
+                        data-date="2024"
+                        data-image="media/proj/dalay.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/dalay.png" alt="Project 7" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">DALAY Project</h2>
+                                <p class="text-gray-700">Front-end Dev</p>
+                            </div>
+                        </div>
+                    </button>
+
+                    <!-- Card 8 -->
+                    <button class="project-card w-full text-left group"
+                        data-title="Algoritees E-commerce"
+                        data-company="Academic Project"
+                        data-date="2023"
+                        data-image="media/proj/algoritees.png">
+                        <div class="relative rounded-xl overflow-hidden shadow-md transition-transform hover:scale-105">
+                            <img src="media/proj/algoritees.png" alt="Project 8" class="w-full h-48 object-cover" />
+                            <div class="absolute inset-0 bg-white bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+                                <h2 class="text-2xl font-bold text-pink-500 mb-2">Algoritees E-commerce</h2>
+                                <p class="text-gray-700">Overall Lead | Front-end Dev</p>
+                            </div>
+                        </div>
+                    </button>
+                </div>
             </div>
         </section>
+        <!-- end::projects -->
 
 
+        <!-- begin::education -->
+        <section id="educ" class="py-10 md:py-20 px-10 bg-white">
+            <div class="max-w-screen-xl mx-auto">
+                <div class="flex flex-col md:flex-row gap-10">
+                    <!-- Left Column -->
+                    <div class="w-full md:w-1/2 flex flex-col justify-start">
+                        <!-- Title -->
+                        <h1 class="text-4xl md:text-5xl font-extrabold text-pink-500 uppercase underline underline-offset-8 mb-7">
+                            Education
+                        </h1>
+
+                        <!-- Description -->
+                        <p class="text-gray-700 mb-6">
+                            Here is an overview of my academic background, including schools attended and notable recognitions I’ve received along the way.
+                        </p>
+
+                        <!-- Awards Card -->
+                        <div class="bg-pink-100 rounded-xl shadow-md p-4 md:p-6">
+                            <h2 class="text-lg md:text-xl font-bold text-pink-500 mb-3 md:mb-4">Academic Awards</h2>
+                            <ul class="list-disc list-inside text-sm md:text-base text-gray-700 space-y-1.5 md:space-y-2">
+                                <li>Graduated with Honors – LHS</li>
+                                <li>Graduated with High Honors – LSHS</li>
+                                <li>Director’s Lister – PUPQC</li>
+                                <li>Top 4 in First Year BSIT Student - PUPQC</li>
+                                <li>3rd Place in Outstanding Third Year BSIT Student - PUPQC</li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+
+                    <!-- Right Column: Timeline -->
+                    <div class="w-full md:w-1/2 relative pl-0 md:pl-20">
+                        <div class="border-l-4 border-pink-500 pl-6 space-y-10">
+                            <!-- Timeline Item 1 -->
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-500">2021 - 2025</h3>
+                                <p class="text-gray-800 font-semibold">Polytechnic University of the Philippines - QC</p>
+                                <p class="text-gray-600">Bachelor of Science in Information Technology</p>
+                            </div>
+
+                            <!-- Timeline Item 2 -->
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-500">2019 - 2021</h3>
+                                <p class="text-gray-800 font-semibold">Lagro Senior High School</p>
+                                <p class="text-gray-600">ICT - Programming Strand</p>
+                            </div>
+
+                            <!-- Timeline Item 3 -->
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-500">2015 - 2019</h3>
+                                <p class="text-gray-800 font-semibold">Lagro High School</p>
+                                <p class="text-gray-600">Junior High School</p>
+                            </div>
+
+                            <!-- Timeline Item 4 -->
+                            <div>
+                                <h3 class="text-lg font-bold text-pink-500">2009 - 2015</h3>
+                                <p class="text-gray-800 font-semibold">Sta. Elena School of Novaliches</p>
+                                <p class="text-gray-600">Elementary School</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end::education -->
+
+
+        <!-- begin::footer -->
+        <footer id="contact" class="bg-pink-500 text-white py-10 px-6 md:px-20">
+            <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-start gap-10">
+        
+                <!-- contact -->
+                <div>
+                    <h2 class="text-2xl font-bold uppercase mb-4">Contact Me</h2>
+                    <p class="mb-2"><strong>Email:</strong>
+                        <a href="https://mail.google.com/mail/?view=cm&to=kimae.kho11@gmail.com"
+                            class="underline underline-offset-4 hover:text-white/70" target="_blank">
+                            kimae.kho11@gmail.com
+                        </a>
+                    </p>
+                    <p class="mb-2"><strong>Phone:</strong> +639205119555</p>
+                    <p class="mb-2"><strong>Location:</strong> Quezon City, Philippines</p>
+                </div>
+            
+                <!-- socials -->
+                <div>
+                    <h2 class="text-2xl font-bold uppercase mb-4">Socials</h2>
+                    <div class="flex gap-4 text-2xl">
+                    <!-- <a href="https://facebook.com" target="_blank" class="hover:text-white/70">
+                        <i class="bi bi-facebook"></i>
+                    </a> -->
+                    <a href="https://github.com/kimly27" target="_blank" class="hover:text-white/70">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/kimberly-kho-2342072aa/" target="_blank" class="hover:text-white/70">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <!-- <a href="https://instagram.com" target="_blank" class="hover:text-white/70">
+                        <i class="bi bi-instagram"></i>
+                    </a> -->
+                    </div>
+                </div>
+        
+            </div>
+        
+            <!-- Divider -->
+            <div class="border-t border-white mt-10 pt-6 text-center text-sm text-white">
+                &copy; 2025 Kimberly Kho. All rights reserved.
+            </div>
+        </footer>
+        <!-- end::footer -->
+        
+  
+  
+
+        <!-- begin::modals -->
+        <!-- project modal -->
+        <div id="projectModal" class="hidden modal-overlay fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-5 md:px-0 overflow-auto">
+            <div class="bg-white p-6 rounded-xl max-w-lg md:max-w-3xl w-full relative shadow-lg fade-in my-10">
+                <button onclick="closeModal()" class="absolute top-2 right-5 text-gray-400 hover:text-pink-500 text-2xl">&times;</button>
+
+                <h2 id="modalTitle" class="text-center text-2xl sm:text-3xl font-bold text-pink-500 mt-6"></h2>
+                <h4 id="modalCompany" class="text-center text-base sm:text-lg font-semibold text-gray-800 mb-2 sm:mb-4"></h4>
+                <p id="modalDate" class="text-center text-gray-700 text-sm sm:text-base mb-4"></p>
+
+                <img id="modalImage" src="" alt="Project" class="w-full rounded-md border-4 border-black" />
+            </div>
+        </div>
+        <!--end::modals-->
+        
 
         <!-- external JS -->
-    <script src="script.js"></script>
+        <script src="script.js"></script>
     </body>
 </html>
