@@ -36,6 +36,7 @@ function closeModal() {
     document.getElementById("projectModal").classList.add("hidden");
 }
 
+
 //click outside modal to close
 window.addEventListener("click", function (e) {
     const modal = document.getElementById("projectModal");
@@ -55,6 +56,7 @@ document.querySelectorAll(".project-card").forEach((btn) => {
     });
 });
 
+
 //mobile menu toggle
 const toggleBtn = document.getElementById('mobile-menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -62,3 +64,21 @@ const mobileMenu = document.getElementById('mobile-menu');
 toggleBtn.addEventListener('click', () => {
     mobileMenu.classList.toggle('hidden');
 });
+
+
+//scroll to top button functionality
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    //show/hide button on scroll
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+            scrollToTopBtn.classList.remove("hidden");
+        } else {
+            scrollToTopBtn.classList.add("hidden");
+        }
+    });
+
+    //scroll to top on click
+    scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
