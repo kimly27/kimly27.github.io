@@ -3,7 +3,7 @@ const roles = [
     "QA Tester",
     "UI/UX Designer",
     "Front-end Developer",
-    "Project Manager"
+    "Project Lead"
 ];
 
 let index = 0;
@@ -24,10 +24,10 @@ setInterval(() => {
 
 
 //for project modal
-function openProjectModal(title, company, date, imageSrc) {
+function openProjectModal(title, company, role, imageSrc) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalCompany").innerText = company;
-    document.getElementById("modalDate").innerText = date;
+    document.getElementById("modalRole").innerText = role;
     document.getElementById("modalImage").src = imageSrc;
     document.getElementById("projectModal").classList.remove("hidden");
 }
@@ -49,10 +49,10 @@ document.querySelectorAll(".project-card").forEach((btn) => {
     btn.addEventListener("click", () => {
         const title = btn.getAttribute("data-title");
         const company = btn.getAttribute("data-company");
-        const date = btn.getAttribute("data-date");
+        const role = btn.getAttribute("data-role");
         const image = btn.getAttribute("data-image");
 
-        openProjectModal(title, company, date, image);
+        openProjectModal(title, company, role, image);
     });
 });
 
