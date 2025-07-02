@@ -69,16 +69,34 @@ toggleBtn.addEventListener('click', () => {
 //scroll to top button functionality
 const scrollToTopBtn = document.getElementById("scrollToTopBtn");
 
-    //show/hide button on scroll
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-            scrollToTopBtn.classList.remove("hidden");
-        } else {
-            scrollToTopBtn.classList.add("hidden");
+//show/hide button on scroll
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollToTopBtn.classList.remove("hidden");
+    } else {
+        scrollToTopBtn.classList.add("hidden");
+    }
+});
+
+//scroll to top on click
+scrollToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+
+//intersection observer for fade-in effect
+const fadeEls = document.querySelectorAll('.fade-in-element');
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            entry.target.classList.remove('opacity-0');
+            observer.unobserve(entry.target); //trigger only once
         }
     });
+}, {
+    threshold: 0.1 //10% of the section visible
+});
 
-    //scroll to top on click
-    scrollToTopBtn.addEventListener("click", () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
+fadeEls.forEach(el => observer.observe(el));
