@@ -1,10 +1,10 @@
 //for roles animation
-const roles = [
-    "QA Tester",
-    "UI/UX Designer",
-    "Front-end Developer",
-    "Project Lead"
-];
+// const roles = [
+//     "QA Tester",
+//     "UI/UX Designer",
+//     "Front-end Developer",
+//     "Project Lead"
+// ];
 
 let index = 0;
 const roleEl = document.getElementById("role");
