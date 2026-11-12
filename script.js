@@ -23,15 +23,58 @@ setInterval(() => {
 
 
 
-//for project modal
-function openProjectModal(title, company, role, imageSrc) {
+
+//for project modal and carousel
+let projectImages = [];
+let currentImageIndex = 0;
+
+function openProjectModal(title, company, role, images) {
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalCompany").innerText = company;
     document.getElementById("modalRole").innerText = role;
-    document.getElementById("modalImage").src = imageSrc;
+
+    //store all project images
+    projectImages = images.split(",").map(img => img.trim());
+    currentImageIndex = 0;
+
+    updateCarousel();
+
     document.getElementById("projectModal").classList.remove("hidden");
 }
 
+function updateCarousel() {
+    document.getElementById("modalImage").src = projectImages[currentImageIndex];
+
+    //update image counter
+    document.getElementById("imageCounter").innerText =
+        `${currentImageIndex + 1} / ${projectImages.length}`;
+
+    //hide buttons and counter if only one image
+    const hasMultipleImages = projectImages.length > 1;
+
+    document.getElementById("prevImage").classList.toggle("hidden", !hasMultipleImages);
+    document.getElementById("nextImage").classList.toggle("hidden", !hasMultipleImages);
+    document.getElementById("imageCounter").classList.toggle("hidden", !hasMultipleImages);
+}
+
+//next image
+function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % projectImages.length;
+    updateCarousel();
+}
+
+//previous image
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + projectImages.length) % projectImages.length;
+    updateCarousel();
+}
+
+//carousel button events
+document.getElementById("nextImage").addEventListener("click", nextImage);
+document.getElementById("prevImage").addEventListener("click", prevImage);
+
+
+//close modal
 function closeModal() {
     document.getElementById("projectModal").classList.add("hidden");
 }
@@ -40,21 +83,26 @@ function closeModal() {
 //click outside modal to close
 window.addEventListener("click", function (e) {
     const modal = document.getElementById("projectModal");
+
     if (e.target === modal) {
         closeModal();
     }
 });
 
+
+//project card click events
 document.querySelectorAll(".project-card").forEach((btn) => {
     btn.addEventListener("click", () => {
         const title = btn.getAttribute("data-title");
         const company = btn.getAttribute("data-company");
         const role = btn.getAttribute("data-role");
-        const image = btn.getAttribute("data-image");
+        const images = btn.getAttribute("data-images");
 
-        openProjectModal(title, company, role, image);
+        openProjectModal(title, company, role, images);
     });
 });
+
+
 
 
 //mobile menu toggle
